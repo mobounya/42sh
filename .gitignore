@@ -1,0 +1,7 @@
+**/objs/
+**/*.o
+**/*.a
+**/*.dSYM
+**/*.out
+.vscode/
+42sh
