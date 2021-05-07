@@ -6,7 +6,7 @@
 /*   By: mel-idri <mel-idri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/06 17:20:45 by mel-idri         ###   ########.fr       */
+/*   Updated: 2021/05/07 13:25:46 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,5 +204,6 @@ void				free_test_token(t_tokens **tokens);
 int					wrapper_free(int ret, t_tokens **tokens);
 t_tokens			*new_node(char *data);
 t_tokens			*ft_convert_tab_list(char **cmd);
+int					ft_tcsetpgrp(int fildes, pid_t pgid_id);
 
 #endif

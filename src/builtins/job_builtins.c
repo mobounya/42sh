@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   job_builtins.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmzah <hmzah@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mel-idri <mel-idri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 15:22:37 by mel-idri          #+#    #+#             */
-/*   Updated: 2021/05/01 09:15:16 by hmzah            ###   ########.fr       */
+/*   Updated: 2021/05/07 13:24:23 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_fg(char **args)
 	}
 	ft_printf(1, "%s\n", job->job_name);
 	job->is_background = FALSE;
-	tcsetpgrp(g_term_fd, job->pgid);
+	ft_tcsetpgrp(g_term_fd, job->pgid);
 	kill(-job->pgid, SIGCONT);
 	update_job(job);
 	return (wait_job(job));

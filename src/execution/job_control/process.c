@@ -6,7 +6,7 @@
 /*   By: mel-idri <mel-idri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 17:54:34 by mel-idri          #+#    #+#             */
-/*   Updated: 2021/04/29 17:52:57 by mel-idri         ###   ########.fr       */
+/*   Updated: 2021/05/07 13:24:38 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	set_process_group(pid_t pid, pid_t *pgid, t_bool is_background)
 		setpgid(pid, pid);
 		*pgid = pid;
 		if (is_background == FALSE)
-			tcsetpgrp(g_term_fd, *pgid);
+			ft_tcsetpgrp(g_term_fd, *pgid);
 	}
 	else if (*pgid > 0)
 		setpgid(pid, *pgid);

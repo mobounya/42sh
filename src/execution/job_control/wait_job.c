@@ -6,7 +6,7 @@
 /*   By: mel-idri <mel-idri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 11:22:47 by mel-idri          #+#    #+#             */
-/*   Updated: 2021/05/06 16:50:48 by mel-idri         ###   ########.fr       */
+/*   Updated: 2021/05/07 13:24:59 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	wait_job(t_job *job)
 		if (job->state == STOPPED)
 		{
 			job->is_background = TRUE;
-			tcsetpgrp(g_term_fd, getpgrp());
+			ft_tcsetpgrp(g_term_fd, getpgrp());
 			return (128 + recent_stop_sig);
 		}
 	}
-	tcsetpgrp(g_term_fd, getpgrp());
+	ft_tcsetpgrp(g_term_fd, getpgrp());
 	if (WIFSIGNALED(job->wait_status))
 		print_signal(job->wait_status);
 	return (job->wait_status);

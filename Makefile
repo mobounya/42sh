@@ -6,7 +6,7 @@
 #    By: mel-idri <mel-idri@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/08 10:36:53 by ylagtab           #+#    #+#              #
-#    Updated: 2021/05/06 17:19:22 by mel-idri         ###   ########.fr        #
+#    Updated: 2021/05/07 13:26:23 by mel-idri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ INCLUDES =	-Iincludes
 	utils/is_quote.o utils/is_close_red.o utils/is_space.o \
 	builtins/set.o builtins/unset.o \
 	env/env.o env/env_dup.o env/env_get.o env/env_operations.o env/utils.o \
-	print_signal.o
+	print_signal.o utils/ft_tcsetpgrp.o
 
 
 42sh_OBJS = $(addprefix $(OBJS_DIR)/, ${42sh})
