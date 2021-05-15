@@ -167,15 +167,6 @@ typedef struct s_special_jobs
 	t_job	*previous;
 }				t_special_jobs;
 
-typedef struct s_tree
-{
-	char			*key;
-	char			*value;
-	int				count;
-	struct s_tree	*right;
-	struct s_tree	*left;
-}				t_t;
-
 // dynamic string
 typedef struct s_string
 {

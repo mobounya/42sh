@@ -42,8 +42,6 @@ extern	t_vector
 *g_job_list;
 extern	t_vector
 *g_stopped_jobs;
-extern	t_t
-*g_hash;
 extern	t_bool
 g_is_job_enabled;
 
@@ -124,13 +122,8 @@ void				backups(int f);
 int					check_nbr(char *str, t_bool stat, int f);
 int					jhin(char **cmd);
 int					check_is_not(int ret, int is_not);
-// int					ft_test(char **cmd);
 int					ft_echo(char **cmd, t_vector *red);
-void				print_hash(t_t *root);
-char				*find_key_in_hash(t_t *root, char *key);
-void				free_hash(t_t **root);
 void				ft_type(char **cmd);
-t_t					*insert_name(t_t *root, char *key, char *value);
 int					export(char **av);
 void				ft_exit(char **cmd);
 

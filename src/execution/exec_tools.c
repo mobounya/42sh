@@ -66,15 +66,14 @@ char	*get_full_path(char *cmd)
 	char	*value;
 
 	value = NULL;
-	value = find_key_in_hash(g_hash, cmd);
+	// You are supposed to look for a hash key here
 	if (!value)
 	{
 		if (!ft_strchr(cmd, '/') && !check_builtins(cmd))
 		{
 			full_path = try_every_possibility(cmd,
 					env_get(g_shell_env, "PATH"));
-			if (ft_strchr(full_path, '/'))
-				g_hash = insert_name(g_hash, cmd, full_path);
+			// suppose to add bin path to hash table.
 		}
 		else
 			full_path = ft_strdup(cmd);
