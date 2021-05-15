@@ -28,6 +28,30 @@
 # include "../src/builtins/builtins.h"
 # include "../readline/readline.h"
 
+/*
+**	Flags and macros for hash options
+*/
+
+# define HASH_SIZE		10000
+
+# define LOW_D_FLAG 0
+# define LOW_L_FLAG 1
+# define LOW_P_FLAG 2
+# define LOW_R_FLAG 3
+# define LOW_T_FLAG 4
+
+# define DEFAULT_FORMAT		5
+# define REUSABLE_FORMAT	6
+# define LOCATION_FORMAT	7
+
+typedef struct		s_hash {
+	unsigned int	hits;
+	char			*binary;
+	char			*path;
+}					t_hash;
+
+t_hash		*g_hash[HASH_SIZE];
+
 void				del_token(void *element);
 void				del_redirection(void *element);
 void				del_var(void *element);
@@ -178,6 +202,7 @@ void				setup_enabled_job_signals(void);
 /*
 ** test amine
 */
+
 int					check_for_exclamation_mark(t_tokens *tokens);
 int					count_tokens(t_tokens *tokens);
 int					ft_is_number(char *number);
@@ -198,5 +223,30 @@ int					wrapper_free(int ret, t_tokens **tokens);
 t_tokens			*new_node(char *data);
 t_tokens			*ft_convert_tab_list(char **cmd);
 int					ft_tcsetpgrp(int fildes, pid_t pgid_id);
+
+/*
+**	Functions in hash folder for the hash table and builtin hash
+*/
+
+void			ft_add_hash(char *binary, char *path);
+int				ft_hash(char **command);
+unsigned long	hash_str(char *str);
+int				ft_forget_name(char *name);
+void			ft_forget_names(char **names);
+char			*ft_get_location(char *name);
+void			ft_empty_hash(void);
+size_t			ft_get_hash_size(void);
+t_hash			*ft_new_hash(char *binary, char *path);
+void			ft_print_default_output(uint hits, char *location);
+void			ft_print_reusable_output(char *name, char *location);
+void			ft_print_location(char *name, char *location);
+void			ft_print_all(int format);
+void			ft_print_names(char **names, int format);
+void			ft_hash_error(char *flag);
+void			ft_hash_names(char **names);
+char			**ft_parse_options(char **command, int *flag);
+void			ft_hash_arg_error(char *flag);
+void			ft_hash_flag_error(char *flag);
+void			ft_name_not_found(char *name);
 
 #endif

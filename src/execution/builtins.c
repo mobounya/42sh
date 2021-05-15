@@ -25,12 +25,6 @@ int	check_builtins(char *cmd)
 	return (0);
 }
 
-void	ft_hash(char **cmd)
-{
-	cmd = NULL;
-	ft_putendl("Called hash");
-}
-
 void	execute_builtins(char **cmd, t_vector *red)
 {
 	if (!ft_strcmp(cmd[0], "test"))
@@ -42,7 +36,7 @@ void	execute_builtins(char **cmd, t_vector *red)
 	else if (!ft_strcmp(cmd[0], "cd"))
 		g_exit_status = ft_cd(cmd + 1);
 	else if (!ft_strcmp(cmd[0], "hash"))
-		ft_hash(NULL);
+		g_exit_status = ft_hash(NULL);
 	else if (!ft_strcmp(cmd[0], "fg"))
 		g_exit_status = ft_fg(cmd);
 	else if (!ft_strcmp(cmd[0], "bg"))

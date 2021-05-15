@@ -54,7 +54,15 @@ INCLUDES =	-Iincludes
 	builtins/test_commande2.o \
 	builtins/test_commande3.o \
 	builtins/test_con_tab_list.o \
-	builtins/hash.o \
+	builtins/hash/ft_add_hash.o \
+	builtins/hash/ft_forget_name.o \
+	builtins/hash/ft_hash.o \
+	builtins/hash/ft_hash_helpers.o \
+	builtins/hash/ft_new_hash.o \
+	builtins/hash/ft_parse_options.o \
+	builtins/hash/ft_print_hash.o \
+	builtins/hash/hash_str.o \
+	builtins/hash/print_errors.o \
 	builtins/type.o \
 	builtins/cd.o \
 	builtins/cd_helper.o \

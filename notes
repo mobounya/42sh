@@ -26,3 +26,6 @@ line 69 :
 line 76 and 77 :
     76: if (ft_strchr(full_path, '/'))
     77: g_hash = insert_name(g_hash, cmd, full_path);
+
+side effects of hash builtin :
+	-
