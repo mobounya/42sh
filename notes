@@ -20,7 +20,7 @@ typedef struct s_tree
 
 in exec_tools.c :
 
-line 69 : 
+line 69 :
     value = find_key_in_hash(g_hash, cmd);
 
 line 76 and 77 :

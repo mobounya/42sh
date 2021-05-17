@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 16:31:31 by mobounya          #+#    #+#             */
-/*   Updated: 2021/04/28 16:07:20 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/17 19:37:41 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,19 @@ void	ft_exec_d_option(char **names)
 		ft_print_all(DEFAULT_FORMAT);
 }
 
-void	ft_default_hash(char **names)
+int		ft_default_hash(char **names)
 {
+	int		error;
+
+	error = 0;
 	if (names[0] == NULL)
 		ft_print_all(DEFAULT_FORMAT);
 	else
-		ft_hash_names(names);
+		error = ft_hash_names(names);
+	return (error);
 }
 
-int	ft_hash(char **command)
+int		ft_hash(char **command)
 {
 	int		flag;
 
@@ -58,7 +62,7 @@ int	ft_hash(char **command)
 	{
 		ft_empty_hash();
 		if (*(command))
-			ft_hash_names(command);
+			return ft_hash_names(command);
 	}
 	else if ((flag & (1 << LOW_D_FLAG)))
 		ft_exec_d_option(command);
@@ -69,6 +73,6 @@ int	ft_hash(char **command)
 	else if (flag & (1 << LOW_L_FLAG))
 		ft_print_all(REUSABLE_FORMAT);
 	else
-		ft_default_hash(command);
+		return (ft_default_hash(command));
 	return (0);
 }

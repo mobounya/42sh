@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 11:00:04 by mobounya          #+#    #+#             */
-/*   Updated: 2021/04/27 16:30:04 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/17 17:44:45 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_hash	*ft_new_hash(char *binary, char *path)
 
 	hash = ft_memalloc(sizeof(t_hash));
 	if (hash == NULL)
-		exit(ENOMEM);
+		exit(1);
 	hash->binary = binary;
 	hash->path = path;
 	hash->hits = 0;

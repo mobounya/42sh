@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:11:49 by hmzah             #+#    #+#             */
-/*   Updated: 2021/05/06 14:45:33 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/05/17 19:32:45 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,15 @@ char	*get_full_path(char *cmd)
 	char	*full_path;
 	char	*value;
 
-	value = NULL;
-	// You are supposed to look for a hash key here
-	if (!value)
+	value = ft_get_hash(cmd);
+	if (value == NULL)
 	{
 		if (!ft_strchr(cmd, '/') && !check_builtins(cmd))
 		{
 			full_path = try_every_possibility(cmd,
 					env_get(g_shell_env, "PATH"));
-			// suppose to add bin path to hash table.
+			if (ft_strchr(full_path, '/'))
+				ft_add_hash(cmd, full_path);
 		}
 		else
 			full_path = ft_strdup(cmd);

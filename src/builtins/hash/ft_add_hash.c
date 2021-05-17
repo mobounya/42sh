@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 11:52:15 by mobounya          #+#    #+#             */
-/*   Updated: 2021/04/27 16:35:39 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/17 19:06:09 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,9 @@ void	ft_add_hash(char *binary, char *path)
 	n_hash = hash_str(binary) % HASH_SIZE;
 	if (g_hash[n_hash])
 	{
-		if (ft_strcmp(path, g_hash[n_hash]->path) == 0)
-			g_hash[n_hash]->hits++;
-		else
-		{
-			free(g_hash[n_hash]->path);
-			g_hash[n_hash]->path = ft_strdup(path);
-			g_hash[n_hash]->hits = 0;
-		}
+		free(g_hash[n_hash]->path);
+		g_hash[n_hash]->path = ft_strdup(path);
+		g_hash[n_hash]->hits = 0;
 	}
 	else
 	{

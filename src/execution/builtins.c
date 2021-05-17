@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmorchid <mmorchid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:11:49 by hmzah             #+#    #+#             */
-/*   Updated: 2021/05/05 15:42:47 by mmorchid         ###   ########.fr       */
+/*   Updated: 2021/05/17 17:50:34 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	execute_builtins(char **cmd, t_vector *red)
 	else if (!ft_strcmp(cmd[0], "cd"))
 		g_exit_status = ft_cd(cmd + 1);
 	else if (!ft_strcmp(cmd[0], "hash"))
-		g_exit_status = ft_hash(NULL);
+		g_exit_status = ft_hash(cmd);
 	else if (!ft_strcmp(cmd[0], "fg"))
 		g_exit_status = ft_fg(cmd);
 	else if (!ft_strcmp(cmd[0], "bg"))

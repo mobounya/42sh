@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   forty_two_sh.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-idri <mel-idri@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/07 13:25:46 by mel-idri         ###   ########.fr       */
+/*   Updated: 2021/05/17 19:11:59 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,7 @@ int					check_builtins(char *cmd);
 void				remove_quotes_from_args(char **args);
 void				reset_signals(void);
 int					manage_pipes(int i);
+char				*try_every_possibility(char *cmd, char *path_env);
 
 /*
 ** ============================= end execution =================================
@@ -243,10 +244,10 @@ void			ft_print_location(char *name, char *location);
 void			ft_print_all(int format);
 void			ft_print_names(char **names, int format);
 void			ft_hash_error(char *flag);
-void			ft_hash_names(char **names);
+int				ft_hash_names(char **names);
 char			**ft_parse_options(char **command, int *flag);
 void			ft_hash_arg_error(char *flag);
 void			ft_hash_flag_error(char *flag);
 void			ft_name_not_found(char *name);
-
+char			*ft_get_hash(char *bin);
 #endif
