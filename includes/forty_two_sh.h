@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/17 19:11:59 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/17 19:45:57 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,7 +233,7 @@ void			ft_add_hash(char *binary, char *path);
 int				ft_hash(char **command);
 unsigned long	hash_str(char *str);
 int				ft_forget_name(char *name);
-void			ft_forget_names(char **names);
+int				ft_forget_names(char **names);
 char			*ft_get_location(char *name);
 void			ft_empty_hash(void);
 size_t			ft_get_hash_size(void);

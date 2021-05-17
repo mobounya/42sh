@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 16:31:31 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/17 19:37:41 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/17 19:49:47 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,13 @@ void	ft_exec_t_option(char **names, int flag)
 		ft_print_names(names, LOCATION_FORMAT);
 }
 
-void	ft_exec_d_option(char **names)
+int		ft_exec_d_option(char **names)
 {
 	if (names[0])
-		ft_forget_names(names);
+		return (ft_forget_names(names));
 	else
 		ft_print_all(DEFAULT_FORMAT);
+	return (0);
 }
 
 int		ft_default_hash(char **names)
@@ -58,14 +59,14 @@ int		ft_hash(char **command)
 	command = ft_parse_options(command + 1, &flag);
 	if (command == NULL)
 		return (1);
-	else if (flag & (1 << LOW_R_FLAG))
+	if (flag & (1 << LOW_R_FLAG))
 	{
 		ft_empty_hash();
 		if (*(command))
 			return ft_hash_names(command);
 	}
 	else if ((flag & (1 << LOW_D_FLAG)))
-		ft_exec_d_option(command);
+		return (ft_exec_d_option(command));
 	else if (flag & (1 << LOW_P_FLAG))
 		ft_set_path_name(*(command + 1), *command);
 	else if (flag & (1 << LOW_T_FLAG))
