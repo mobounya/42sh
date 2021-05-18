@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 11:08:30 by mobounya          #+#    #+#             */
-/*   Updated: 2021/04/28 16:06:00 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 14:03:11 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,28 @@
 **   1      /path/to/bin
 */
 
+static void	ft_print_chars(char c, uint times)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < times)
+	{
+		ft_putchar(c);
+		i++;
+	}
+}
+
 void	ft_print_default_output(uint hits, char *location)
 {
+	size_t			hits_str_len;
+	char			*hits_str;
+	size_t			num_of_spaces_to_print;
+
+	hits_str = ft_itoa(hits);
+	hits_str_len = ft_strlen(hits_str);
+	num_of_spaces_to_print = 4 - hits_str_len;
+	ft_print_chars(' ', num_of_spaces_to_print);
 	ft_putnbr(hits);
 	ft_putstr("    ");
 	ft_putendl(location);
@@ -84,7 +104,7 @@ void	ft_print_all(int format)
 		return;
 	}
 	if (format == DEFAULT_FORMAT)
-		ft_putendl("hits     command");
+		ft_putendl("hits    command");
 	while (i < HASH_SIZE)
 	{
 		if (g_hash[i])

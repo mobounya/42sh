@@ -3,19 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mel-idri <mel-idri@student.1337.ma>        +#+  +:+       +#+         #
+#    By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/28 10:25:34 by mel-idri          #+#    #+#              #
-#    Updated: 2021/03/07 10:50:41 by mel-idri         ###   ########.fr        #
+#    Updated: 2021/05/18 13:34:25 by mobounya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = readline.a
 TMP_NAME = readline.tmp.a
 LIBFT = libft/libft.a
-CFLAGS =
+CFLAGS = -Wall -Wextra -Werror
 ifeq ($(DEBUG), true)
-	CFLAGS = -g
+	CFLAGS = -Wall -Wextra -Werror -g
 endif
 CC = gcc
 SRCS = add_hist_entry.c \

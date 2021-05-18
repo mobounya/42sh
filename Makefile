@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mel-idri <mel-idri@student.1337.ma>        +#+  +:+       +#+         #
+#    By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/08 10:36:53 by ylagtab           #+#    #+#              #
-#    Updated: 2021/05/07 13:26:23 by mel-idri         ###   ########.fr        #
+#    Updated: 2021/05/18 13:34:17 by mobounya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,12 @@ EXPANSION = src/expansion/expansion.a
 LIBFT_OPT = "LIBFT_EXIT_ON_ALLOC_FAIL=1"
 
 # compilation variables
-CFLAGS = $(INCLUDES) -g
+CFLAGS = -Wall -Wextra -Werror $(INCLUDES) -g
 CC = gcc
-LIBS_ENV=42sh_headers=$(mkfile_dir)/includes/forty_two_sh.h 42sh_include_dirs=-I$(mkfile_dir)includes/
+LIBS_ENV= 42sh_headers=$(mkfile_dir)/includes/forty_two_sh.h 42sh_include_dirs=-I$(mkfile_dir)includes/
 
 # 42sh																		   #
-INCLUDES =	-Iincludes
+INCLUDES =	-I includes
 
 42sh_INC =	includes/forty_two_sh.h includes/typedefs.h includes/constants.h \
 			src/errors/errors.h

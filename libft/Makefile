@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+         #
+#    By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/20 21:20:45 by mel-idri          #+#    #+#              #
-#    Updated: 2021/05/04 13:56:54 by ylagtab          ###   ########.fr        #
+#    Updated: 2021/05/18 13:34:16 by mobounya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = libft.a
 
 # compilation variables
 CC = gcc
-CFLAGS = -g
+CFLAGS = -Wall -Wextra -Werror -g
 
 MACROS =
 ifeq ($(LIBFT_EXIT_ON_ALLOC_FAIL), 1)

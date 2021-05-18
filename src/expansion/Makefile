@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+         #
+#    By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 10:14:12 by ylagtab           #+#    #+#              #
-#    Updated: 2021/05/02 16:14:11 by ylagtab          ###   ########.fr        #
+#    Updated: 2021/05/18 13:34:46 by mobounya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = expansion.a
 
 # compilation variables
 INCLUDE_DIRS = -I. $(42sh_include_dirs)
-CFLAGS = $(INCLUDE_DIRS) -g
+CFLAGS = -Wall -Wextra -Werror $(INCLUDE_DIRS) -g
 CC = gcc
 
 # EXPANSION																		   #

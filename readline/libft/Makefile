@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+         #
+#    By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/29 16:45:44 by mel-idri          #+#    #+#              #
-#    Updated: 2021/05/04 13:50:46 by ylagtab          ###   ########.fr        #
+#    Updated: 2021/05/18 13:34:34 by mobounya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CFLAGS = 
+CFLAGS = -Wall -Wextra -Werror
 ifeq ($(DEBUG), true)
 	CFLAGS = -g
 endif

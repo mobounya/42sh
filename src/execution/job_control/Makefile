@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mel-idri <mel-idri@student.1337.ma>        +#+  +:+       +#+         #
+#    By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/08 10:36:53 by ylagtab           #+#    #+#              #
-#    Updated: 2021/04/28 12:29:41 by mel-idri         ###   ########.fr        #
+#    Updated: 2021/05/18 13:34:40 by mobounya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = job_control.a
 
 
 # compilation variables
-CFLAGS = -I $(INCLUDES_PATH) -g
+CFLAGS = -Wall -Wextra -Werror -I $(INCLUDES_PATH) -g
 CC = gcc
 
 42SH_ROOT=../../..
