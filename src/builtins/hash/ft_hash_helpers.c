@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 10:54:26 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/18 16:03:15 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 17:57:29 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_empty_hash(void)
 	}
 }
 
-char	*ft_get_location(char *name)
+char	*ft_get_hash_location(char *name)
 {
 	unsigned long	n_hash;
 

@@ -6,11 +6,11 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 11:59:56 by mobounya          #+#    #+#             */
-/*   Updated: 2021/04/29 13:47:27 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 16:46:23 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "forty_two_sh.h"
 
 void	ft_print_type_hash(char *name, char *path, int format)
 {

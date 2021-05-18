@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 11:08:30 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/18 16:03:54 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 17:54:48 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,12 +117,12 @@ int	ft_print_names(char **names, int format)
 	{
 		if (format == REUSABLE_FORMAT)
 		{
-			if (ft_print_reusable_output(names[i], ft_get_location(names[i])))
+			if (ft_print_reusable_output(names[i], ft_get_hash_location(names[i])))
 				error = 1;
 		}
 		else if (format == LOCATION_FORMAT)
 		{
-			if (ft_print_location(names[i], ft_get_location(names[i])))
+			if (ft_print_location(names[i], ft_get_hash_location(names[i])))
 				error = 1;
 		}
 		i++;

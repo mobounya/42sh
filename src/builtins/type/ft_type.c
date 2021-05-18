@@ -6,11 +6,11 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 12:56:11 by mobounya          #+#    #+#             */
-/*   Updated: 2021/04/29 14:10:34 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 18:19:37 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "forty_two_sh.h"
 
 /*
 **	Lookup name type in the default order.
@@ -48,7 +48,7 @@ int	lookup_all_types(char	*name, int format)
 	val = is_alias(name);
 	if (val)
 		ft_print_type_alias(name, val, format);
-	if (is_builtin(name))
+	if (check_builtins(name))
 		ft_print_type_builtin(name, format);
 	val = is_binary(name);
 	if (val)
@@ -94,14 +94,13 @@ void	ft_type_force_path_search(char *name, int flag)
 int	ft_type(char **command)
 {
 	unsigned int	i;
-	char			*val;
 	unsigned int	flag;
 	int				format;
 
 	i = 1;
 	flag = 0;
 	format = DEFAULT_OUTPUT;
-	while (command[i] && command[i][0] == '-')
+	while (command[i] && command[i][ 0] == '-')
 	{
 		if (ft_strncmp(command[i], "--", 2) == 0)
 		{
@@ -112,11 +111,11 @@ int	ft_type(char **command)
 			return (1);
 		i++;
 	}
+	if (command[i] == NULL)
+		return (0);
 	if (flag & (1 << LOW_T_FLAG))
 		format = WORD_OUTPUT;
-	if (command[i] == NULL)
-		return (g_exit_code = -1);
-	else if (flag & (1 << LOW_A_FLAG))
+	if (flag & (1 << LOW_A_FLAG))
 		return (lookup_all_types(command[i], format));
 	else if (flag & (1 << LOW_P_FLAG))
 		ft_type_check_if_file(command[i], flag);

@@ -6,7 +6,7 @@
 #    By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/08 10:36:53 by ylagtab           #+#    #+#              #
-#    Updated: 2021/05/18 15:40:15 by mobounya         ###   ########.fr        #
+#    Updated: 2021/05/18 17:56:37 by mobounya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,11 @@ INCLUDES =	-I includes
 	builtins/hash/print_errors.o \
 	builtins/hash/ft_print_this_many_chars.o \
 	builtins/hash/ft_free_hash.o \
-	builtins/type.o \
+	builtins/type/ft_parse_type_options.o \
+	builtins/type/ft_type.o \
+	builtins/type/ft_type_checks.o \
+	builtins/type/ft_type_errors.o \
+	builtins/type/ft_type_print.o \
 	builtins/cd.o \
 	builtins/cd_helper.o \
 	builtins/cd_helper2.o \

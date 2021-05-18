@@ -6,11 +6,11 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 11:51:22 by mobounya          #+#    #+#             */
-/*   Updated: 2021/04/29 13:53:11 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 16:46:00 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "forty_two_sh.h"
 
 int	ft_parse_type_options(char *value, unsigned int *flag)
 {

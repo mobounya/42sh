@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/18 16:26:24 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 17:55:14 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,39 @@
 # include "../src/builtins/builtins.h"
 # include "../readline/readline.h"
 
+# define LOW_D_FLAG 0
+# define LOW_L_FLAG 1
+# define LOW_R_FLAG 3
+# define LOW_T_FLAG 4
+# define LOW_A_FLAG 0
+# define LOW_F_FLAG 1
+# define UPP_P_FLAG 2
+# define LOW_P_FLAG 3
+# define LOW_T_FLAG 4
+
 /*
-**	Flags and macros for hash options
+**	Flags and macros for hash builtin
 */
 
 # define HASH_SIZE		10000
 
-# define LOW_D_FLAG 0
-# define LOW_L_FLAG 1
-# define LOW_P_FLAG 2
-# define LOW_R_FLAG 3
-# define LOW_T_FLAG 4
-
 # define DEFAULT_FORMAT		5
 # define REUSABLE_FORMAT	6
 # define LOCATION_FORMAT	7
+
+/*
+**	Flags and macros for type builtin
+*/
+
+# define WORD_OUTPUT 5
+# define DEFAULT_OUTPUT 6
+
+# define ALIAS 7
+# define KEYWORD 8
+# define FUNCTION 9
+# define BUILTIN 10
+# define FILE 11
+# define HASH 12
 
 typedef struct		s_hash {
 	unsigned int	hits;
@@ -234,7 +252,7 @@ int				ft_hash(char **command);
 unsigned long	hash_str(char *str);
 int				ft_forget_name(char *name);
 int				ft_forget_names(char **names);
-char			*ft_get_location(char *name);
+char			*ft_get_hash_location(char *name);
 void			ft_empty_hash(void);
 size_t			ft_get_hash_size(void);
 t_hash			*ft_new_hash(char *binary, char *path);
@@ -257,5 +275,23 @@ void			ft_free_hash(t_hash *hash[]);
 **	Functions for the type builtin
 */
 
-int		ft_type(char **cmd);
+int		ft_type(char **command);
+int		get_cmdtype(char *name, char **val);
+int		is_keyword(char *name);
+char	*is_hashed(char *name);
+char	*is_binary(char *name);
+char	*is_alias(char *name);
+int		ft_parse_type_options(char *value, unsigned int *flag);
+void	ft_display_type_usage(void);
+void	ft_type_invalid_option(char option);
+void	ft_print_type_hash(char *name, char *path, int format);
+void	ft_print_type_alias(char *name, char *alias_value, int format);
+void	ft_print_type_keyword(char *name, int format);
+void	ft_print_type_builtin(char *name, int format);
+void	ft_print_type_binary(char *name, char *path, int format);
+int		default_lookup(char *name, int format);
+int		lookup_all_types(char	*name, int format);
+void	ft_type_check_if_file(char *name, int flag);
+void	ft_type_force_path_search(char *name, int flag);
+
 #endif
