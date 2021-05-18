@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:11:49 by hmzah             #+#    #+#             */
-/*   Updated: 2021/05/17 17:50:34 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 16:31:05 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	execute_builtins(char **cmd, t_vector *red)
 	else if (!ft_strcmp(cmd[0], "export"))
 		g_exit_status = export(cmd);
 	else if (!ft_strcmp(cmd[0], "type"))
-		ft_type(cmd);
+		g_exit_status = ft_type(cmd);
 	else if (!ft_strcmp(cmd[0], "exit"))
 		ft_exit(cmd);
 }

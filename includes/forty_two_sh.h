@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/18 15:59:58 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 16:26:24 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,6 @@ int					check_nbr(char *str, t_bool stat, int f);
 int					jhin(char **cmd);
 int					check_is_not(int ret, int is_not);
 int					ft_echo(char **cmd, t_vector *red);
-void				ft_type(char **cmd);
 int					export(char **av);
 void				ft_exit(char **cmd);
 
@@ -253,4 +252,10 @@ void			ft_name_not_found(char *name);
 char			*ft_get_hash(char *bin);
 void			ft_print_chars(char c, uint times);
 void			ft_free_hash(t_hash *hash[]);
+
+/*
+**	Functions for the type builtin
+*/
+
+int		ft_type(char **cmd);
 #endif
