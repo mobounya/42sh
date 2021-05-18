@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 10:54:26 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/18 15:14:21 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 16:03:15 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	ft_hash_names(char **names)
 			}
 			else
 				ft_add_hash(names[i], path, 0);
+			free(path);
 		}
 		i++;
 	}

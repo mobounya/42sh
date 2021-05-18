@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:15:48 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/17 17:33:38 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 16:00:01 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int	main(int ac, char *av[], char *envp[])
 			ft_strerror(EOPENFILE, "open", NULL, TRUE);
 		while (1)
 			(void)shell_main();
+		ft_free_hash(g_hash);
 		if (g_shell_env)
 			vector_free(g_shell_env);
 	}

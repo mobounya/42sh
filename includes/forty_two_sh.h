@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/18 14:49:00 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 15:59:58 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,4 +252,5 @@ void			ft_hash_flag_error(char *flag);
 void			ft_name_not_found(char *name);
 char			*ft_get_hash(char *bin);
 void			ft_print_chars(char c, uint times);
+void			ft_free_hash(t_hash *hash[]);
 #endif
