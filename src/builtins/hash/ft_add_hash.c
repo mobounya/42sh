@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 11:52:15 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/17 19:06:09 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 14:49:06 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **	Functions in ft_hash folder for the hash table and builtin hash
 */
 
-void	ft_add_hash(char *binary, char *path)
+void	ft_add_hash(char *binary, char *path, int increment_hits)
 {
 	t_hash			*hash;
 	unsigned long	n_hash;
@@ -31,7 +31,8 @@ void	ft_add_hash(char *binary, char *path)
 	else
 	{
 		hash = ft_new_hash(ft_strdup(binary), ft_strdup(path));
-		hash->hits++;
+		if (increment_hits)
+			hash->hits++;
 		g_hash[n_hash] = hash;
 	}
 }

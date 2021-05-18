@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 11:08:30 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/18 14:03:11 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 14:19:14 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,6 @@
 **  hits    command
 **   1      /path/to/bin
 */
-
-static void	ft_print_chars(char c, uint times)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i < times)
-	{
-		ft_putchar(c);
-		i++;
-	}
-}
 
 void	ft_print_default_output(uint hits, char *location)
 {
@@ -50,7 +38,7 @@ void	ft_print_default_output(uint hits, char *location)
 **  hash -p /path/to/bin bin
 */
 
-int		ft_print_reusable_output(char *name, char *location)
+int	ft_print_reusable_output(char *name, char *location)
 {
 	if (location && name)
 	{
@@ -72,7 +60,7 @@ int		ft_print_reusable_output(char *name, char *location)
 **  /path/to/bin
 */
 
-int		ft_print_location(char *name, char *location)
+int	ft_print_location(char *name, char *location)
 {
 	if (name && location)
 	{
@@ -101,7 +89,7 @@ void	ft_print_all(int format)
 	if (ft_get_hash_size() == 0)
 	{
 		ft_putendl("hash: hash table empty");
-		return;
+		return ;
 	}
 	if (format == DEFAULT_FORMAT)
 		ft_putendl("hits    command");
@@ -118,7 +106,7 @@ void	ft_print_all(int format)
 	}
 }
 
-int		ft_print_names(char **names, int format)
+int	ft_print_names(char **names, int format)
 {
 	unsigned int	i;
 	int				error;

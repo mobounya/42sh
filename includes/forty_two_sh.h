@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/18 13:38:14 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 14:49:00 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,7 +230,7 @@ int					ft_tcsetpgrp(int fildes, pid_t pgid_id);
 **	Functions in hash folder for the hash table and builtin hash
 */
 
-void			ft_add_hash(char *binary, char *path);
+void			ft_add_hash(char *binary, char *path, int increment_hits);
 int				ft_hash(char **command);
 unsigned long	hash_str(char *str);
 int				ft_forget_name(char *name);
@@ -251,4 +251,5 @@ void			ft_hash_arg_error(char *flag);
 void			ft_hash_flag_error(char *flag);
 void			ft_name_not_found(char *name);
 char			*ft_get_hash(char *bin);
+void			ft_print_chars(char c, uint times);
 #endif

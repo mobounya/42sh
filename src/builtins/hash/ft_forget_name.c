@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 13:59:49 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/17 19:47:47 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 14:11:04 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_forget_name(char *name)
 	return (1);
 }
 
-int		ft_forget_names(char **names)
+int	ft_forget_names(char **names)
 {
 	unsigned int		i;
 	int					error;
@@ -43,9 +43,7 @@ int		ft_forget_names(char **names)
 		if (ft_forget_name(names[i]))
 		{
 			error = 1;
-			ft_putstr_fd("42sh: hash: ", 2);
-			ft_putstr_fd(names[i], 2);
-			ft_putendl_fd(": not found", 2);
+			ft_name_not_found(names[i]);
 		}
 		i++;
 	}

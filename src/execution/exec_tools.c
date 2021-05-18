@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:11:49 by hmzah             #+#    #+#             */
-/*   Updated: 2021/05/17 19:32:45 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 15:14:50 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*get_full_path(char *cmd)
 			full_path = try_every_possibility(cmd,
 					env_get(g_shell_env, "PATH"));
 			if (ft_strchr(full_path, '/'))
-				ft_add_hash(cmd, full_path);
+				ft_add_hash(cmd, full_path, 1);
 		}
 		else
 			full_path = ft_strdup(cmd);

@@ -6,13 +6,13 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 16:31:31 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/18 14:00:06 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 15:13:57 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "forty_two_sh.h"
 
-int		ft_set_path_name(char *binary, char *path)
+int	ft_set_path_name(char *binary, char *path)
 {
 	if (binary == NULL || path == NULL)
 	{
@@ -20,11 +20,11 @@ int		ft_set_path_name(char *binary, char *path)
 		return (1);
 	}
 	else
-		ft_add_hash(binary, path);
+		ft_add_hash(binary, path, 0);
 	return (0);
 }
 
-int		ft_exec_t_option(char **names, int flag)
+int	ft_exec_t_option(char **names, int flag)
 {
 	if (names[0] == NULL)
 	{
@@ -38,7 +38,7 @@ int		ft_exec_t_option(char **names, int flag)
 	return (0);
 }
 
-int		ft_exec_d_option(char **names)
+int	ft_exec_d_option(char **names)
 {
 	if (names[0])
 		return (ft_forget_names(names));
@@ -47,7 +47,7 @@ int		ft_exec_d_option(char **names)
 	return (0);
 }
 
-int		ft_default_hash(char **names)
+int	ft_default_hash(char **names)
 {
 	int		error;
 
@@ -59,7 +59,7 @@ int		ft_default_hash(char **names)
 	return (error);
 }
 
-int		ft_hash(char **command)
+int	ft_hash(char **command)
 {
 	int		flag;
 
@@ -71,7 +71,7 @@ int		ft_hash(char **command)
 	{
 		ft_empty_hash();
 		if (*(command))
-			return ft_hash_names(command);
+			return (ft_hash_names(command));
 	}
 	else if ((flag & (1 << LOW_D_FLAG)))
 		return (ft_exec_d_option(command));

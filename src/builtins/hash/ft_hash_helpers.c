@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 10:54:26 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/17 19:41:57 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 15:14:21 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,9 @@ char	*ft_get_location(char *name)
 		return (NULL);
 }
 
-int		ft_hash_names(char **names)
+int	ft_hash_names(char **names)
 {
 	unsigned int	i;
-	unsigned long	n_hash;
 	char			*path;
 	int				error;
 
@@ -73,27 +72,22 @@ int		ft_hash_names(char **names)
 	{
 		if (!check_builtins(names[i]))
 		{
-			ft_forget_name(names[i]);
-			path = try_every_possibility(names[i], env_get(g_shell_env, "PATH"));
+			path = try_every_possibility(names[i], \
+				env_get(g_shell_env, "PATH"));
 			if (ft_strequ(path, names[i]))
 			{
 				error = 1;
-				ft_putstr_fd("42sh: hash: ", 2);
-				ft_putstr_fd(names[i], 2);
-				ft_putendl_fd(": not found", 2);
+				ft_name_not_found(names[i]);
 			}
 			else
-			{
-				n_hash = hash_str(names[i]) % HASH_SIZE;
-				g_hash[n_hash] = ft_new_hash(ft_strdup(names[i]), path);
-			}
+				ft_add_hash(names[i], path, 0);
 		}
 		i++;
 	}
 	return (error);
 }
 
-char		*ft_get_hash(char *bin)
+char	*ft_get_hash(char *bin)
 {
 	unsigned int	i;
 	unsigned int	n_hash;
