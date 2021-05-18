@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-uint32_t	ter_ui(int bool, uint32_t val1, uint32_t val2)
+u_int32_t	ter_ui(int bool, u_int32_t val1, u_int32_t val2)
 {
 	if (bool)
 		return (val1);

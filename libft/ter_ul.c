@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-uint64_t	ter_ul(int bool, unsigned long val1, unsigned long val2)
+u_int64_t	ter_ul(int bool, unsigned long val1, unsigned long val2)
 {
 	if (bool)
 		return (val1);

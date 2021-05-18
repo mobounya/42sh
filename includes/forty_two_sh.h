@@ -13,6 +13,7 @@
 #ifndef FORTY_TWO_SH_H
 # define FORTY_TWO_SH_H
 
+# include <sys/wait.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
@@ -80,8 +81,8 @@ void				add_process_to_job(t_job *job, pid_t pid);
 t_process			*get_process_from_job(t_job *job, pid_t pid);
 void				remove_process_from_job(t_job *job, pid_t pid);
 void				add_to_job_list(t_job *job);
-t_job				*get_job_by_id(uint32_t id);
-void				remove_from_job_list(uint32_t job_id);
+t_job				*get_job_by_id(u_int32_t id);
+void				remove_from_job_list(u_int32_t job_id);
 void				update_stopped_jobs(t_job *job);
 void				update_job_state(t_job *job, pid_t pid, int wait_status);
 void				update_job(t_job *job);
@@ -239,10 +240,10 @@ void			ft_empty_hash(void);
 size_t			ft_get_hash_size(void);
 t_hash			*ft_new_hash(char *binary, char *path);
 void			ft_print_default_output(uint hits, char *location);
-void			ft_print_reusable_output(char *name, char *location);
-void			ft_print_location(char *name, char *location);
+int				ft_print_reusable_output(char *name, char *location);
+int				ft_print_location(char *name, char *location);
 void			ft_print_all(int format);
-void			ft_print_names(char **names, int format);
+int				ft_print_names(char **names, int format);
 void			ft_hash_error(char *flag);
 int				ft_hash_names(char **names);
 char			**ft_parse_options(char **command, int *flag);

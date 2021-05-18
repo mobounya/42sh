@@ -20,7 +20,7 @@ NAME = parser.a
 # compilation variables
 INCLUDE_DIRS = -I. -Ilexer/ -Iparse_simple_cmd/ -Iparse_pipe/ \
 	-Iparse_and_or/ $(42sh_include_dirs)
-CFLAGS = -Wall -Wextra -Werror $(INCLUDE_DIRS) -g
+CFLAGS =  -Wextra -Werror $(INCLUDE_DIRS) -g
 CC = gcc
 
 # 42sh																		   #

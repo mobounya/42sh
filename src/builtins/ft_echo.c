@@ -25,7 +25,7 @@ int	ft_echo(char **args, t_vector *red)
 		g_exit_status = 1;
 		return (g_exit_status);
 	}
-	while (!ft_strcmp("-n", args[i]))
+	while (args[i] && !ft_strcmp("-n", args[i]))
 	{
 		opt_n = 1;
 		i++;

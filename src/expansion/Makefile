@@ -19,7 +19,7 @@ NAME = expansion.a
 
 # compilation variables
 INCLUDE_DIRS = -I. $(42sh_include_dirs)
-CFLAGS = -Wall -Wextra -Werror $(INCLUDE_DIRS) -g
+CFLAGS = $(INCLUDE_DIRS) -g
 CC = gcc
 
 # EXPANSION																		   #

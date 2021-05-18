@@ -30,7 +30,7 @@ void	ft_print_default_output(uint hits, char *location)
 **  hash -p /path/to/bin bin
 */
 
-void	ft_print_reusable_output(char *name, char *location)
+int		ft_print_reusable_output(char *name, char *location)
 {
 	if (location && name)
 	{
@@ -40,7 +40,11 @@ void	ft_print_reusable_output(char *name, char *location)
 		ft_putendl(name);
 	}
 	else
+	{
 		ft_name_not_found(name);
+		return (1);
+	}
+	return (0);
 }
 
 /*
@@ -48,7 +52,7 @@ void	ft_print_reusable_output(char *name, char *location)
 **  /path/to/bin
 */
 
-void	ft_print_location(char *name, char *location)
+int		ft_print_location(char *name, char *location)
 {
 	if (name && location)
 	{
@@ -57,7 +61,11 @@ void	ft_print_location(char *name, char *location)
 		ft_putendl(location);
 	}
 	else
+	{
 		ft_name_not_found(name);
+		return (1);
+	}
+	return (0);
 }
 
 /*
@@ -70,16 +78,13 @@ void	ft_print_all(int format)
 	unsigned int	i;
 
 	i = 0;
-	if (format == DEFAULT_FORMAT)
+	if (ft_get_hash_size() == 0)
 	{
-		if (ft_get_hash_size() > 0)
-			ft_putendl("hits     command");
-		else
-		{
-			ft_putendl("hash: hash table empty");
-			return ;
-		}
+		ft_putendl("hash: hash table empty");
+		return;
 	}
+	if (format == DEFAULT_FORMAT)
+		ft_putendl("hits     command");
 	while (i < HASH_SIZE)
 	{
 		if (g_hash[i])
@@ -93,17 +98,26 @@ void	ft_print_all(int format)
 	}
 }
 
-void	ft_print_names(char **names, int format)
+int		ft_print_names(char **names, int format)
 {
 	unsigned int	i;
+	int				error;
 
 	i = 0;
+	error = 0;
 	while (names[i])
 	{
 		if (format == REUSABLE_FORMAT)
-			ft_print_reusable_output(names[i], ft_get_location(names[i]));
+		{
+			if (ft_print_reusable_output(names[i], ft_get_location(names[i])))
+				error = 1;
+		}
 		else if (format == LOCATION_FORMAT)
-			ft_print_location(names[i], ft_get_location(names[i]));
+		{
+			if (ft_print_location(names[i], ft_get_location(names[i])))
+				error = 1;
+		}
 		i++;
 	}
+	return (error);
 }

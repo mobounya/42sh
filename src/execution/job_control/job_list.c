@@ -54,7 +54,7 @@ void	add_to_job_list(t_job *job)
 	vector_push(g_job_list, job);
 }
 
-t_job	*get_job_by_id(uint32_t id)
+t_job	*get_job_by_id(u_int32_t id)
 {
 	t_job *const	jobs_array = g_job_list->array;
 	size_t			i;
@@ -71,7 +71,7 @@ t_job	*get_job_by_id(uint32_t id)
 	return (NULL);
 }
 
-void	remove_from_job_list(uint32_t job_id)
+void	remove_from_job_list(u_int32_t job_id)
 {
 	t_job *const	jobs_array = g_job_list->array;
 	size_t			i;

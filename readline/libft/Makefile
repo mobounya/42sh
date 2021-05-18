@@ -12,9 +12,9 @@
 
 NAME = libft.a
 
-CFLAGS = -Wall -Wextra  -Werror
+CFLAGS = 
 ifeq ($(DEBUG), true)
-	CFLAGS = -g -Wall -Wextra
+	CFLAGS = -g
 endif
 CC = gcc
 

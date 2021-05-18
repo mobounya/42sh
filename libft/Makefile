@@ -19,7 +19,7 @@ NAME = libft.a
 
 # compilation variables
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -g
 
 MACROS =
 ifeq ($(LIBFT_EXIT_ON_ALLOC_FAIL), 1)

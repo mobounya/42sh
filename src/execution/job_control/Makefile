@@ -19,7 +19,7 @@ NAME = job_control.a
 
 
 # compilation variables
-CFLAGS = -Wall -Wextra -Werror -I$(INCLUDES_PATH) -g
+CFLAGS = -I $(INCLUDES_PATH) -g
 CC = gcc
 
 42SH_ROOT=../../..

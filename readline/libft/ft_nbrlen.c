@@ -15,7 +15,7 @@ int	ft_nbrlen(__uint128_t n)
 	int	i;
 
 	i = 1;
-	while (n)
+	while (n >= 10)
 	{
 		n = n / 10;
 		i++;

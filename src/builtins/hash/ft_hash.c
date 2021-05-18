@@ -12,22 +12,30 @@
 
 #include "forty_two_sh.h"
 
-void	ft_set_path_name(char *binary, char *path)
+int		ft_set_path_name(char *binary, char *path)
 {
 	if (binary == NULL || path == NULL)
+	{
 		ft_hash_arg_error("-p");
+		return (1);
+	}
 	else
 		ft_add_hash(binary, path);
+	return (0);
 }
 
-void	ft_exec_t_option(char **names, int flag)
+int		ft_exec_t_option(char **names, int flag)
 {
 	if (names[0] == NULL)
+	{
 		ft_hash_arg_error("-t");
+		return (1);
+	}
 	else if (flag & (1 << LOW_L_FLAG))
-		ft_print_names(names, REUSABLE_FORMAT);
+		return (ft_print_names(names, REUSABLE_FORMAT));
 	else
-		ft_print_names(names, LOCATION_FORMAT);
+		return (ft_print_names(names, LOCATION_FORMAT));
+	return (0);
 }
 
 int		ft_exec_d_option(char **names)
@@ -68,9 +76,9 @@ int		ft_hash(char **command)
 	else if ((flag & (1 << LOW_D_FLAG)))
 		return (ft_exec_d_option(command));
 	else if (flag & (1 << LOW_P_FLAG))
-		ft_set_path_name(*(command + 1), *command);
+		return (ft_set_path_name(*(command + 1), *command));
 	else if (flag & (1 << LOW_T_FLAG))
-		ft_exec_t_option(command, flag);
+		return (ft_exec_t_option(command, flag));
 	else if (flag & (1 << LOW_L_FLAG))
 		ft_print_all(REUSABLE_FORMAT);
 	else

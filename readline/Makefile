@@ -13,9 +13,9 @@
 NAME = readline.a
 TMP_NAME = readline.tmp.a
 LIBFT = libft/libft.a
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS =
 ifeq ($(DEBUG), true)
-	CFLAGS = -g -Wall -Wextra
+	CFLAGS = -g
 endif
 CC = gcc
 SRCS = add_hist_entry.c \

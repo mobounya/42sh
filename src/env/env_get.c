@@ -17,11 +17,11 @@ char	*get_exit_status_str(void)
 	static char	status[10];
 	char		*st;
 
-	st = ft_itoa(g_exit_status);
+	st = ft_itoa(g_exit_status);;
 	ft_strcpy(status, st);
 	status[ft_strlen(st)] = '\0';
 	free(st);
-	return (status);
+	return (ft_strdup(status));
 }
 
 char	*get_pid_str(void)

@@ -23,7 +23,7 @@ EXPANSION = src/expansion/expansion.a
 LIBFT_OPT = "LIBFT_EXIT_ON_ALLOC_FAIL=1"
 
 # compilation variables
-CFLAGS = -Wall -Wextra -Werror $(INCLUDES) -g
+CFLAGS = $(INCLUDES) -g
 CC = gcc
 LIBS_ENV=42sh_headers=$(mkfile_dir)/includes/forty_two_sh.h 42sh_include_dirs=-I$(mkfile_dir)includes/
 

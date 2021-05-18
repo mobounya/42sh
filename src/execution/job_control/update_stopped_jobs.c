@@ -25,7 +25,7 @@ void	update_stopped_jobs(t_job *job)
 	{
 		while (i < g_stopped_jobs->length)
 		{
-			if (*(uint32_t *)vector_get(g_stopped_jobs, i) == job->id)
+			if (*(u_int32_t *)vector_get(g_stopped_jobs, i) == job->id)
 			{
 				vector_remove(g_stopped_jobs, i);
 				break ;
