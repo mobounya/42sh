@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/18 17:55:14 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/18 18:52:16 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,7 +291,7 @@ void	ft_print_type_builtin(char *name, int format);
 void	ft_print_type_binary(char *name, char *path, int format);
 int		default_lookup(char *name, int format);
 int		lookup_all_types(char	*name, int format);
-void	ft_type_check_if_file(char *name, int flag);
-void	ft_type_force_path_search(char *name, int flag);
-
+int		ft_type_check_if_file(char *name, int flag);
+int		ft_type_force_path_search(char *name, int flag);
+void	ft_type_not_found(char *name);
 #endif
