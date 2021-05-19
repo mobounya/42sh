@@ -6,13 +6,13 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 15:40:29 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/19 13:42:10 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/19 16:23:31 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "forty_two_sh.h"
 
-const t_flags_matcher g_flags_matcher[] =
+const t_flags_matcher g_flags_matcher[TEST_UNARY_OPERATORS_SIZE + 1] =
 {
 	{"-b", &ft_check_file_type, BLOCK_FILE},
 	{"-c", &ft_check_file_type, CHARACTER_FILE},
@@ -32,6 +32,18 @@ const t_flags_matcher g_flags_matcher[] =
 	{NULL, NULL, 0},
 };
 
+const char	*g_test_operators[TEST_BINARY_OPERATORS_SIZE + 1] = 
+{
+	"=",
+	"!=",
+	"-eq",
+	"-ne",
+	"-ge",
+	"-lt",
+	"-le",
+	NULL,
+};
+
 int		ft_check_str_length(char *str, int flag)
 {
 	(void)flag;
@@ -39,51 +51,6 @@ int		ft_check_str_length(char *str, int flag)
 		return (0);
 	else
 		return (1);
-}
-
-int		ft_check_file_type(char *filename, int flag)
-{
-	struct stat buf;
-
-	if (access(filename, F_OK) == 0)
-	{
-		if (flag == IS_EXIST)
-			return (0);
-		if (lstat(filename, &buf) == 0)
-		{
-			if (flag == SYM_LINK)
-			{
-				ft_putendl("TODO: Come back to this later");
-				return (0);
-			}
-			if ((flag == BLOCK_FILE) && S_ISBLK(buf.st_mode))
-				return (0);
-			if ((flag == CHARACTER_FILE) && S_ISCHR(buf.st_mode))
-				return (0);
-			if ((flag == DIRECTORY) && S_ISDIR(buf.st_mode))
-				return (0);
-			if ((flag == REGULAR_FILE) && S_ISREG(buf.st_mode))
-				return (0);
-			if ((flag == GROUP_ID) && buf.st_mode & S_ISGID)
-				return (0);
-			if ((flag == NAMED_PIPE) && S_ISFIFO(buf.st_mode))
-				return (0);
-			if ((flag == IS_READABLE) && access(filename, R_OK) == 0)
-				return (0);
-			if ((flag == IS_SOCKET) && S_ISSOCK(buf.st_mode))
-				return (0);
-			if ((flag == POS_SIZE) && buf.st_size > 0)
-				return (0);
-			if ((flag == USER_ID) && buf.st_mode & S_ISUID)
-				return (0);
-			if ((flag == IS_WRITABALE) && access(filename, W_OK) == 0)
-				return (0);
-			if ((flag == IS_EXECUTABLE) && access(filename, X_OK) == 0)
-				return (0);
-			return (1);
-		}
-	}
-	return (1);
 }
 
 char	*ft_get_flag(char **command)
@@ -100,15 +67,9 @@ char	*ft_get_flag(char **command)
 	return (command[0]);
 }
 
-int		do_operation(char **command)
+int		do_operation(char *operand1, char *operator, char *operand2)
 {
-	char	*operator;
-	char	*operand1;
-	char	*operand2;
 
-	operator = command[1];
-	operand1 = command[0];
-	operand2 = command[2];
 	if (ft_strcmp(operator, "=") == 0 && ft_strcmp(operand1, operand2) == 0)
 		return (0);
 	if (ft_strcmp(operator, "!=") == 0 && ft_strcmp(operand1, operand2) != 0)
@@ -134,13 +95,6 @@ int		do_operation(char **command)
 	return (1);
 }
 
-void	unknown_flag(char *flag)
-{
-	ft_putstr("test: ");
-	ft_putstr("unknown condition: ");
-	ft_putendl(flag);
-}
-
 int		ft_exec_condition(char **command)
 {
 	unsigned int	i;
@@ -150,7 +104,8 @@ int		ft_exec_condition(char **command)
 
 	i = 0;
 	flag = command[0];
-	if ((filename = command[1]) == NULL)
+	filename = command[1];
+	if (filename == NULL)
 		return (0);
 	while (g_flags_matcher[i].flag_name)
 	{
@@ -162,45 +117,60 @@ int		ft_exec_condition(char **command)
 		}
 		i++;
 	}
-	unknown_flag(flag);
-	return (1);
+	return (3);
+}
+
+int		is_binary_operator(char *operator)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < TEST_BINARY_OPERATORS_SIZE)
+	{
+		if (ft_strequ(operator, g_test_operators[i]))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int		is_unary_operator(char *operator)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < TEST_UNARY_OPERATORS_SIZE)
+	{
+		if (ft_strequ(g_flags_matcher[i].flag_name, operator))
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 int		ft_test(char **command)
 {
-	int				res;
-	int				size;
-	int				not;
+	int		argc;
+	int		has_not;
 
-	not = 0;
-	if (command[1] == NULL)
-		return (0);
-	if (command[1][0] == '!')
-		not = 1;
-	if ((!not && !command[1]) || (not && !command[2]))
-		return (0);
-	if ((!not && command[1][0] == '-') || (not && command[2][0] == '-'))
+	has_not = 0;
+	if (command[1] && command[1][0] == '!')
+		has_not = 1;
+	command += has_not;
+	argc = ft_arraysize(command);
+	if (argc > 4)
+		return (ft_test_too_many_arguments());
+	if (argc == 4)
 	{
-		if ((size = ft_arraysize(command + ((not) ? 2 : 1))) > 2)
-			return (0);
-		res = ft_exec_condition(command + ((not) ? 2 : 1));
+		if (is_binary_operator(command[2]) == 0)
+			return (ft_test_binary_op_expected(command[2]));
+		return (has_not ^ do_operation(command[1], command[2], command[3]));
 	}
-	else
+	if (argc == 3)
 	{
-		size = ft_arraysize(command + ((not) ? 2 : 1));
-		if (size > 3)
-			return (0);
-		if (size < 3)
-		{
-			ft_putstr_fd("42sh: parse error: condition expected: ", 2);
-			ft_putendl_fd(*(command + ((not) ? 2 : 1)), 2);
-			return (1);
-		}
-		res = do_operation(command + ((command[1][0] == '!') ? 2 : 1));
+		if (is_unary_operator(command[1]) == 0)
+			return (ft_test_unary_op_expected(command[1]));
+		return (has_not ^ ft_exec_condition(command + 1));	
 	}
-	if (not && res)
-		res = 0;
-	else if (not && !res)
-		res = 1;
 	return (0);
 }

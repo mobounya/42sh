@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/19 13:37:22 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/19 16:21:37 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ typedef struct		s_flags_matcher {
 # define IS_WRITABALE 12
 # define IS_EXECUTABLE 13
 # define IS_EXIST 15
-
+# define TEST_BINARY_OPERATORS_SIZE 7
+# define TEST_UNARY_OPERATORS_SIZE 15
 /*
 **	Flags and macros for hash builtin
 */
@@ -306,5 +307,10 @@ int		ft_execute_type(char **names, int flag);
 int		ft_test(char **command);
 int		ft_check_file_type(char *filename, int flag);
 int		ft_check_str_length(char *str, int flag);
+int		ft_check_file_type(char *filename, int flag);
+void	ft_test_condition_expected(char *condition);
+int		ft_test_too_many_arguments(void);
+int		ft_test_binary_op_expected(char *op);
+int		ft_test_unary_op_expected(char *op);
 
 #endif
