@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 12:56:11 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/18 18:58:01 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/19 11:26:33 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,10 +132,12 @@ int	ft_type(char **command)
 	unsigned int	i;
 	unsigned int	flag;
 	int				format;
+	int				status;
 
 	i = 1;
 	flag = 0;
 	format = DEFAULT_OUTPUT;
+	status = 1;
 	while (command[i] && command[i][ 0] == '-')
 	{
 		if (ft_strncmp(command[i], "--", 2) == 0)
@@ -148,16 +150,32 @@ int	ft_type(char **command)
 		i++;
 	}
 	if (command[i] == NULL)
-		return (1);
-	if (flag & (1 << LOW_T_FLAG))
-		format = WORD_OUTPUT;
-	if (flag & (1 << LOW_A_FLAG))
-		return (lookup_all_types(command[i], format));
-	else if (flag & (1 << LOW_P_FLAG))
-		return (ft_type_check_if_file(command[i], flag));
-	else if (flag & (1 << UPP_P_FLAG))
-		return (ft_type_force_path_search(command[i], flag));
-	else
-		return (default_lookup(command[i], format));
-	return (0);
+		return (0);
+	while (command[i])
+	{
+		if (flag & (1 << LOW_T_FLAG))
+			format = WORD_OUTPUT;
+		if (flag & (1 << LOW_A_FLAG))
+		{
+			if (lookup_all_types(command[i], format) == 0)
+				status = 0;
+		}
+		else if (flag & (1 << LOW_P_FLAG))
+		{
+			if (ft_type_check_if_file(command[i], flag) == 0)
+				status = 0;
+		}
+		else if (flag & (1 << UPP_P_FLAG))
+		{
+			if (ft_type_force_path_search(command[i], flag) == 0)
+				status = 0;
+		}
+		else
+		{
+			if (default_lookup(command[i], format) == 0)
+				status = 0;
+		}
+		i++;
+	}
+	return (status);
 }
