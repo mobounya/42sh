@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 13:48:49 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/19 16:24:07 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/19 17:53:50 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,13 @@ int		ft_test_unary_op_expected(char *op)
 	ft_putstr_fd("42sh: test: ", 2);
 	ft_putstr_fd(op, 2);
 	ft_putendl_fd(": unary operator expected", 2);
+	return (2);
+}
+
+int		ft_test_integer_expected(char *str)
+{
+	ft_putstr_fd("42sh: test: ", 2);
+	ft_putstr_fd(str, 2);
+	ft_putendl_fd(": integer expression expected", 2);
 	return (2);
 }

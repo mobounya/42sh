@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:52 by mel-idri          #+#    #+#             */
-/*   Updated: 2021/05/19 13:39:43 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/19 17:39:56 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ int			ft_nbrlen(__uint128_t unbr);
 int			ft_nbrlen_base(unsigned long long n, int base);
 long long	ft_power(int nbr, int exp);
 t_bool		ft_between(long value, long small, long great);
+int			ft_isnumeric(char *str);
 
 /*
 **	Printing

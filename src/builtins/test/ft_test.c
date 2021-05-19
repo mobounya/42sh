@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 15:40:29 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/19 16:23:31 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/19 19:04:38 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,21 @@ const t_flags_matcher g_flags_matcher[TEST_UNARY_OPERATORS_SIZE + 1] =
 	{NULL, NULL, 0},
 };
 
-const char	*g_test_operators[TEST_BINARY_OPERATORS_SIZE + 1] = 
+const char	*g_test_integer_operators[7] = 
 {
-	"=",
-	"!=",
 	"-eq",
 	"-ne",
+	"-gt",
 	"-ge",
 	"-lt",
 	"-le",
+	NULL,
+};
+
+const char	*g_test_string_operators[3] = 
+{
+	"=",
+	"!=",
 	NULL,
 };
 
@@ -65,34 +71,6 @@ char	*ft_get_flag(char **command)
 		i++;
 	}
 	return (command[0]);
-}
-
-int		do_operation(char *operand1, char *operator, char *operand2)
-{
-
-	if (ft_strcmp(operator, "=") == 0 && ft_strcmp(operand1, operand2) == 0)
-		return (0);
-	if (ft_strcmp(operator, "!=") == 0 && ft_strcmp(operand1, operand2) != 0)
-		return (0);
-	if (ft_strcmp(operator, "-eq") == 0)
-		if (ft_atoi(operand1) == ft_atoi(operand2))
-			return (0);
-	if (ft_strcmp(operator, "-ne") == 0)
-		if (ft_atoi(operand1) != ft_atoi(operand2))
-			return (0);
-	if (ft_strcmp(operator, "-gt") == 0)
-		if (ft_atoi(operand1) > ft_atoi(operand2))
-			return (0);
-	if (ft_strcmp(operator, "-ge") == 0)
-		if (ft_atoi(operand1) >= ft_atoi(operand2))
-			return (0);
-	if (ft_strcmp(operator, "-lt") == 0)
-		if (ft_atoi(operand1) < ft_atoi(operand2))
-			return (0);
-	if (ft_strcmp(operator, "-le") == 0)
-		if (ft_atoi(operand1) <= ft_atoi(operand2))
-			return (0);
-	return (1);
 }
 
 int		ft_exec_condition(char **command)
@@ -120,18 +98,28 @@ int		ft_exec_condition(char **command)
 	return (3);
 }
 
-int		is_binary_operator(char *operator)
+int 	ft_in_array(const char **array, char *needle, int (*equals)(const char*, const char*))
 {
 	unsigned int	i;
 
 	i = 0;
-	while (i < TEST_BINARY_OPERATORS_SIZE)
+	while (array[i])
 	{
-		if (ft_strequ(operator, g_test_operators[i]))
+		if (equals(needle, array[i]))
 			return (1);
 		i++;
 	}
-	return (0);
+	return (0);	
+}
+
+int		is_string_operator(char *operator)
+{
+	return (ft_in_array(g_test_string_operators, operator, &ft_strequ));
+}
+
+int		is_integer_operator(char *operator)
+{
+	return (ft_in_array(g_test_integer_operators, operator, &ft_strequ));
 }
 
 int		is_unary_operator(char *operator)
@@ -141,36 +129,38 @@ int		is_unary_operator(char *operator)
 	i = 0;
 	while (i < TEST_UNARY_OPERATORS_SIZE)
 	{
-		if (ft_strequ(g_flags_matcher[i].flag_name, operator))
+		if (ft_strequ(operator, g_flags_matcher[i].flag_name))
 			return (1);
 		i++;
 	}
-	return (0);
+	return (0);	
 }
 
 int		ft_test(char **command)
 {
 	int		argc;
-	int		has_not;
+	int		not;
+	int		op_result;
 
-	has_not = 0;
+	not = 0;
 	if (command[1] && command[1][0] == '!')
-		has_not = 1;
-	command += has_not;
+		not = 1;
+	command += not;
 	argc = ft_arraysize(command);
 	if (argc > 4)
 		return (ft_test_too_many_arguments());
 	if (argc == 4)
 	{
-		if (is_binary_operator(command[2]) == 0)
-			return (ft_test_binary_op_expected(command[2]));
-		return (has_not ^ do_operation(command[1], command[2], command[3]));
+		op_result = do_operation(command);
+		if (op_result == 2)
+			return (op_result);
+		return (not ^ op_result);
 	}
 	if (argc == 3)
 	{
 		if (is_unary_operator(command[1]) == 0)
 			return (ft_test_unary_op_expected(command[1]));
-		return (has_not ^ ft_exec_condition(command + 1));	
+		return (not ^ ft_exec_condition(command + 1));
 	}
 	return (0);
 }
