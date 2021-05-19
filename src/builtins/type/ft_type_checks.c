@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:15:14 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/18 18:04:54 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/19 11:35:55 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*is_binary(char *name)
 {
 	char	*path;
 	char	*binary_location;
-	
+
 	path = env_get(g_shell_env, "PATH");
 	binary_location = try_every_possibility(name, path);
 	if (ft_strequ(binary_location, name))
@@ -34,7 +34,6 @@ char	*is_binary(char *name)
 
 char	*is_alias(char *name)
 {
-	// Get alias
 	(void)name;
 	return (NULL);
 }
