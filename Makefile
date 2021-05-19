@@ -6,7 +6,7 @@
 #    By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/08 10:36:53 by ylagtab           #+#    #+#              #
-#    Updated: 2021/05/19 12:29:58 by mobounya         ###   ########.fr        #
+#    Updated: 2021/05/19 13:21:28 by mobounya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,10 +50,6 @@ INCLUDES =	-I includes
 	builtins/job_builtins.o \
 	builtins/ft_echo.o \
 	builtins/ft_exit.o \
-	builtins/test_commande.o \
-	builtins/test_commande2.o \
-	builtins/test_commande3.o \
-	builtins/test_con_tab_list.o \
 	builtins/hash/ft_add_hash.o \
 	builtins/hash/ft_forget_name.o \
 	builtins/hash/ft_hash.o \

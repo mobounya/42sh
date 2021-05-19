@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/19 12:30:55 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/19 13:22:10 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ extern	t_vector
 *g_stopped_jobs;
 extern	t_bool
 g_is_job_enabled;
+
+int					ft_tcsetpgrp(int fildes, pid_t pgid_id);
 
 /*
 ** ================================ jobs =======================================
@@ -217,31 +219,6 @@ int					is_space(char c, int quote);
 void				reset_signals(void);
 void				setup_disabled_job_signals(void);
 void				setup_enabled_job_signals(void);
-
-/*
-** test amine
-*/
-
-int					check_for_exclamation_mark(t_tokens *tokens);
-int					count_tokens(t_tokens *tokens);
-int					ft_is_number(char *number);
-int					ft_binary(char *arg1, char *arg2, t_test_operation ope);
-int					test_commande(char **cmd);
-t_test_flags		check_flags_test2(t_tokens *tokens);
-t_test_flags		check_flags_test(t_tokens *tokens);
-t_test_operation	ft_check_operateur(t_tokens *tokens);
-void				ft_error_unary(char *error);
-int					ft_error_arg(char *arg1, char *arg2, int num1);
-int					check_unary_op2(t_tokens *tokens, t_test_flags
-						flags, struct stat	buf);
-int					check_unary_op(t_tokens *tokens);
-int					check_binary_op(t_tokens *tokens);
-void				ft_error_binary(char *error);
-void				free_test_token(t_tokens **tokens);
-int					wrapper_free(int ret, t_tokens **tokens);
-t_tokens			*new_node(char *data);
-t_tokens			*ft_convert_tab_list(char **cmd);
-int					ft_tcsetpgrp(int fildes, pid_t pgid_id);
 
 /*
 **	Functions in hash folder for the hash table and builtin hash

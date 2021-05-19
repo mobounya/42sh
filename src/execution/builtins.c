@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:11:49 by hmzah             #+#    #+#             */
-/*   Updated: 2021/05/19 11:33:39 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/19 13:21:30 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_builtins(char *cmd)
 void	execute_builtins(char **cmd, t_vector *red)
 {
 	if (!ft_strcmp(cmd[0], "test"))
-		g_exit_status = test_commande(cmd);
+		g_exit_status = 0;
 	else if (!ft_strcmp(cmd[0], "echo"))
 		g_exit_status = ft_echo(cmd, red);
 	else if (!ft_strcmp(cmd[0], "jobs"))
