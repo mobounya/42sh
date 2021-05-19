@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:52 by mel-idri          #+#    #+#             */
-/*   Updated: 2021/05/04 13:44:13 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/05/19 13:39:43 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,5 +169,11 @@ int			ter_i(int bool, int val1, int val2);
 u_int64_t	ter_ul(int bool, unsigned long val1, unsigned long val2);
 void		*ter_p(int bool, void *val1, void *val2);
 u_int32_t	ter_ui(int bool, u_int32_t val1, u_int32_t val2);
+
+/*
+**	arrays
+*/
+
+int		ft_arraysize(char **ar);
 
 #endif

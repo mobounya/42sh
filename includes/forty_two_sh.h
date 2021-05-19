@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/19 13:22:10 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/19 13:37:22 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,32 @@
 # define UPP_P_FLAG 2
 # define LOW_P_FLAG 3
 # define LOW_T_FLAG 4
+
+/*
+**	Flags and macros for test builtin
+*/
+
+typedef int			t_flag_matcher();
+typedef struct		s_flags_matcher {
+	char			*flag_name;
+	t_flag_matcher	*function;
+	int				flag;
+}					t_flags_matcher;
+
+# define BLOCK_FILE 1
+# define CHARACTER_FILE 2
+# define DIRECTORY 3
+# define REGULAR_FILE 4
+# define GROUP_ID 5
+# define SYM_LINK 6
+# define NAMED_PIPE 7
+# define IS_READABLE 8
+# define IS_SOCKET 9
+# define POS_SIZE 10
+# define USER_ID 11
+# define IS_WRITABALE 12
+# define IS_EXECUTABLE 13
+# define IS_EXIST 15
 
 /*
 **	Flags and macros for hash builtin
@@ -272,4 +298,13 @@ int		ft_type_check_if_file(char *name, int flag);
 int		ft_type_force_path_search(char *name, int flag);
 void	ft_type_not_found(char *name);
 int		ft_execute_type(char **names, int flag);
+
+/*
+**	Functions for the test builtin
+*/
+
+int		ft_test(char **command);
+int		ft_check_file_type(char *filename, int flag);
+int		ft_check_str_length(char *str, int flag);
+
 #endif
