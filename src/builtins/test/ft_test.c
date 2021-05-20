@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 15:40:29 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/20 15:06:18 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/20 16:32:34 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ const t_flags_matcher	g_flags_matcher[TEST_UNARY_OPERATORS_SIZE + 1] =
 int	ft_check_str_length(char *str, int flag)
 {
 	(void)flag;
-	if (ft_strlen(str) > 0)
+	if (ft_strlen(str) == 0)
 		return (0);
 	else
 		return (1);
@@ -87,7 +87,7 @@ int	ft_test(char **command)
 	int		op_result;
 
 	not = 0;
-	if (command[1] && command[1][0] == '!')
+	if (command[1] && ft_strequ(command[1], "!"))
 		not = 1;
 	command += not;
 	argc = ft_arraysize(command);

@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 17:15:09 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/20 13:52:17 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/20 16:13:34 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,19 @@
 static int	do_string_operation(char *operand1, char *operator, char *operand2)
 {
 	if (ft_strequ(operator, "="))
-		return (ft_strequ(operand1, operand2));
+	{
+		if (ft_strequ(operand1, operand2))
+			return (0);
+		else
+			return (1);
+	}
 	if (ft_strequ(operator, "!="))
-		return (!ft_strequ(operand1, operand2));
+	{
+		if (ft_strequ(operand1, operand2) != 1)
+			return (0);
+		else
+			return (1);
+	}
 	return (2);
 }
 
