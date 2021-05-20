@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 11:45:26 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/04/06 15:34:25 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/05/20 17:32:12 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		intlen(int n)
+static int	intlen(int n)
 {
-	int digits;
+	int	digits;
 
 	digits = 0;
 	if (n == 0)
@@ -29,7 +29,7 @@ static int		intlen(int n)
 	return (digits);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		digits;
 	char	*str;
@@ -39,7 +39,8 @@ char			*ft_itoa(int n)
 	num = n;
 	i = 0;
 	digits = intlen(num);
-	if ((str = malloc(sizeof(*str) * (digits + 1))) == NULL)
+	str = malloc(sizeof(*str) * (digits + 1));
+	if (str == NULL)
 		return (NULL);
 	str[digits--] = '\0';
 	if (num < 0)

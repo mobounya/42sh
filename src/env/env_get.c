@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_get.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 08:57:08 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/04/30 15:14:59 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/05/20 17:34:07 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*get_exit_status_str(void)
 	static char	status[10];
 	char		*st;
 
-	st = ft_itoa(g_exit_status);;
+	st = ft_itoa(g_exit_status);
 	ft_strcpy(status, st);
 	status[ft_strlen(st)] = '\0';
 	free(st);

@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/20 15:06:28 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/20 17:25:19 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 */
 
 typedef int			t_flag_matcher();
-typedef struct		s_flags_matcher {
+typedef struct s_flags_matcher {
 	char			*flag_name;
 	t_flag_matcher	*function;
 	int				flag;
@@ -91,32 +91,26 @@ typedef struct		s_flags_matcher {
 # define FILE 11
 # define HASH 12
 
-typedef struct		s_hash {
+typedef struct s_hash
+{
 	unsigned int	hits;
 	char			*binary;
 	char			*path;
-}					t_hash;
+}	t_hash;
 
-t_hash		*g_hash[HASH_SIZE];
+t_hash				*g_hash[HASH_SIZE];
 
+extern t_vector		*g_shell_env;
+extern int			g_exit_status;
+extern int			g_term_fd;
+extern t_vector		*g_job_list;
+extern t_vector		*g_stopped_jobs;
+extern t_bool		g_is_job_enabled;
+
+int					ft_tcsetpgrp(int fildes, pid_t pgid_id);
 void				del_token(void *element);
 void				del_redirection(void *element);
 void				del_var(void *element);
-
-extern	t_vector
-*g_shell_env;
-extern	int
-g_exit_status;
-extern	int
-g_term_fd;
-extern	t_vector
-*g_job_list;
-extern	t_vector
-*g_stopped_jobs;
-extern	t_bool
-g_is_job_enabled;
-
-int					ft_tcsetpgrp(int fildes, pid_t pgid_id);
 
 /*
 ** ================================ jobs =======================================
@@ -252,74 +246,76 @@ void				setup_enabled_job_signals(void);
 **	Functions in hash folder for the hash table and builtin hash
 */
 
-void			ft_add_hash(char *binary, char *path, int increment_hits);
-int				ft_hash(char **command);
-unsigned long	hash_str(char *str);
-int				ft_forget_name(char *name);
-int				ft_forget_names(char **names);
-char			*ft_get_hash_location(char *name);
-void			ft_empty_hash(void);
-size_t			ft_get_hash_size(void);
-t_hash			*ft_new_hash(char *binary, char *path);
-void			ft_print_default_output(uint hits, char *location);
-int				ft_print_reusable_output(char *name, char *location);
-int				ft_print_location(char *name, char *location);
-void			ft_print_all(int format);
-int				ft_print_names(char **names, int format);
-void			ft_hash_error(char *flag);
-int				ft_hash_names(char **names);
-char			**ft_parse_options(char **command, int *flag);
-void			ft_hash_arg_error(char *flag);
-void			ft_hash_flag_error(char *flag);
-void			ft_name_not_found(char *name);
-char			*ft_get_hash(char *bin);
-void			ft_print_chars(char c, uint times);
-void			ft_free_hash(t_hash *hash[]);
+void				ft_add_hash(char *binary, char *path, int increment_hits);
+int					ft_hash(char **command);
+unsigned long		hash_str(char *str);
+int					ft_forget_name(char *name);
+int					ft_forget_names(char **names);
+char				*ft_get_hash_location(char *name);
+void				ft_empty_hash(void);
+size_t				ft_get_hash_size(void);
+t_hash				*ft_new_hash(char *binary, char *path);
+void				ft_print_default_output(uint hits, char *location);
+int					ft_print_reusable_output(char *name, char *location);
+int					ft_print_location(char *name, char *location);
+void				ft_print_all(int format);
+int					ft_print_names(char **names, int format);
+void				ft_hash_error(char *flag);
+int					ft_hash_names(char **names);
+char				**ft_parse_options(char **command, int *flag);
+void				ft_hash_arg_error(char *flag);
+void				ft_hash_flag_error(char *flag);
+void				ft_name_not_found(char *name);
+char				*ft_get_hash(char *bin);
+void				ft_print_chars(char c, uint times);
+void				ft_free_hash(t_hash *hash[]);
 
 /*
 **	Functions for the type builtin
 */
 
-int		ft_type(char **command);
-int		get_cmdtype(char *name, char **val);
-int		is_keyword(char *name);
-char	*is_hashed(char *name);
-char	*is_binary(char *name);
-char	*is_alias(char *name);
-int		ft_parse_type_options(char *value, unsigned int *flag);
-void	ft_display_type_usage(void);
-void	ft_type_invalid_option(char option);
-int		ft_print_type_hash(char *name, char *path, int format);
-int		ft_print_type_alias(char *name, char *alias_value, int format);
-int		ft_print_type_keyword(char *name, int format);
-int		ft_print_type_builtin(char *name, int format);
-int		ft_print_type_binary(char *name, char *path, int format);
-int		default_lookup(char *name, int format);
-int		lookup_all_types(char	*name, int format);
-int		ft_type_check_if_file(char *name, int flag);
-int		ft_type_force_path_search(char *name, int flag);
-void	ft_type_not_found(char *name);
-int		ft_execute_type(char **names, int flag);
+int					ft_type(char **command);
+int					get_cmdtype(char *name, char **val);
+int					is_keyword(char *name);
+char				*is_hashed(char *name);
+char				*is_binary(char *name);
+char				*is_alias(char *name);
+int					ft_parse_type_options(char *value, unsigned int *flag);
+void				ft_display_type_usage(void);
+void				ft_type_invalid_option(char option);
+int					ft_print_type_hash(char *name, char *path, int format);
+int					ft_print_type_alias(char *name, \
+					char *alias_value, int format);
+int					ft_print_type_keyword(char *name, int format);
+int					ft_print_type_builtin(char *name, int format);
+int					ft_print_type_binary(char *name, char *path, int format);
+int					default_lookup(char *name, int format);
+int					lookup_all_types(char	*name, int format);
+int					ft_type_check_if_file(char *name, int flag);
+int					ft_type_force_path_search(char *name, int flag);
+void				ft_type_not_found(char *name);
+int					ft_execute_type(char **names, int flag);
 
 /*
 **	Functions for the test builtin
 */
 
-int		ft_test(char **command);
-int		ft_check_file_type(char *filename, int flag);
-int		ft_check_str_length(char *str, int flag);
-int		ft_check_file_type(char *filename, int flag);
-void	ft_test_condition_expected(char *condition);
-int		ft_test_too_many_arguments(void);
-int		ft_test_binary_op_expected(char *op);
-int		ft_test_unary_op_expected(char *op);
-int		ft_test_integer_expected(char *str);
-int		is_string_operator(char *operator);
-int		is_integer_operator(char *operator);
-int		is_unary_operator(char *operator);
-int		do_operation(char **command);
-int		is_string_operator(char *operator);
-int		is_integer_operator(char *operator);
-int		is_unary_operator(char *operator);
-int		ft_check_file(char *filename, int flag);
+int					ft_test(char **command);
+int					ft_check_file_type(char *filename, int flag);
+int					ft_check_str_length(char *str, int flag);
+int					ft_check_file_type(char *filename, int flag);
+void				ft_test_condition_expected(char *condition);
+int					ft_test_too_many_arguments(void);
+int					ft_test_binary_op_expected(char *op);
+int					ft_test_unary_op_expected(char *op);
+int					ft_test_integer_expected(char *str);
+int					is_string_operator(char *operator);
+int					is_integer_operator(char *operator);
+int					is_unary_operator(char *operator);
+int					do_operation(char **command);
+int					is_string_operator(char *operator);
+int					is_integer_operator(char *operator);
+int					is_unary_operator(char *operator);
+int					ft_check_file(char *filename, int flag);
+
 #endif

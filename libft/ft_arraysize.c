@@ -6,13 +6,13 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:27:51 by mobounya          #+#    #+#             */
-/*   Updated: 2020/11/13 18:27:52 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/20 17:27:00 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_arraysize(char **ar)
+int	ft_arraysize(char **ar)
 {
 	int	i;
 

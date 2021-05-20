@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:52 by mel-idri          #+#    #+#             */
-/*   Updated: 2021/05/19 17:39:56 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/20 17:32:11 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,6 @@ u_int32_t	ter_ui(int bool, u_int32_t val1, u_int32_t val2);
 **	arrays
 */
 
-int		ft_arraysize(char **ar);
+int			ft_arraysize(char **ar);
 
 #endif
