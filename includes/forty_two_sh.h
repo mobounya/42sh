@@ -6,7 +6,7 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 10:17:07 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/05/19 18:54:47 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/20 15:06:28 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -318,5 +318,8 @@ int		is_string_operator(char *operator);
 int		is_integer_operator(char *operator);
 int		is_unary_operator(char *operator);
 int		do_operation(char **command);
-
+int		is_string_operator(char *operator);
+int		is_integer_operator(char *operator);
+int		is_unary_operator(char *operator);
+int		ft_check_file(char *filename, int flag);
 #endif

@@ -6,22 +6,22 @@
 /*   By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 17:15:09 by mobounya          #+#    #+#             */
-/*   Updated: 2021/05/19 19:04:27 by mobounya         ###   ########.fr       */
+/*   Updated: 2021/05/20 13:52:17 by mobounya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "forty_two_sh.h"
 
-static int		do_string_operation(char *operand1, char *operator, char *operand2)
+static int	do_string_operation(char *operand1, char *operator, char *operand2)
 {
 	if (ft_strequ(operator, "="))
-        return (ft_strequ(operand1, operand2));
+		return (ft_strequ(operand1, operand2));
 	if (ft_strequ(operator, "!="))
-        return (!ft_strequ(operand1, operand2));
+		return (!ft_strequ(operand1, operand2));
 	return (2);
 }
 
-static int		do_integer_operation(char *operand1, char *operator, char *operand2)
+static int	do_integer_operation(char *operand1, char *operator, char *operand2)
 {
 	if (ft_strcmp(operator, "-eq") == 0)
 		if (ft_atoi(operand1) == ft_atoi(operand2))
@@ -53,7 +53,7 @@ static char	*which_operand_is_not_numeric(char *operator1, char *operator2)
 	return (NULL);
 }
 
-int		do_operation(char **command)
+int	do_operation(char **command)
 {
 	char	*operator;
 

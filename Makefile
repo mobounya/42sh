@@ -6,7 +6,7 @@
 #    By: mobounya <mobounya@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/08 10:36:53 by ylagtab           #+#    #+#              #
-#    Updated: 2021/05/19 17:24:46 by mobounya         ###   ########.fr        #
+#    Updated: 2021/05/20 14:04:21 by mobounya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ INCLUDES =	-I includes
 	builtins/test/ft_builtin_test_errors.o \
 	builtins/test/ft_check_file_type.o \
 	builtins/test/ft_do_operations.o \
+	builtins/test/ft_is_test_operator.o \
 	builtins/cd.o \
 	builtins/cd_helper.o \
 	builtins/cd_helper2.o \
